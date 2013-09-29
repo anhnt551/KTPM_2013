@@ -5,7 +5,6 @@ Created on Sep 23, 2013
 '''
 import unittest
 import math
-import decimal
 from triangle import detect_triangle
 
 class Test(unittest.TestCase):
@@ -46,11 +45,15 @@ class Test(unittest.TestCase):
     def testIsBalance1(self):
         self.assertEqual(detect_triangle(1,2,2), "triangle is balance")
     def testIsBalance2(self):
-        self.assertEqual(detect_triangle(1,2.5,2.5), "triangle is balance")
+        self.assertEqual(detect_triangle(1,1,2), "triangle is balance")
     def testIsBalance3(self):
-        self.assertEqual(detect_triangle(0.1,0.1,0.05), "triangle is balance")
-    def testIsSquareAndBalance(self):
+        self.assertEqual(detect_triangle(2.5,1,2.5), "triangle is balance")
+    def testIsSquareAndBalance1(self):
         self.assertEqual(detect_triangle(2,2,2*math.sqrt(2)), 'triangle is square and balance')
+    def testIsSquareAndBalance2(self):
+        self.assertEqual(detect_triangle(1,math.sqrt(2),1), 'triangle is square and balance')
+    def testIsSquareAndBalance3(self):
+        self.assertEqual(detect_triangle(199*math.sqrt(2),199,199), 'triangle is square and balance')
     def testIsNormal1(self):
         self.assertEqual(detect_triangle(1.1,2.2,3.2), 'triangle is normal')
     def testIsNormal2(self):
